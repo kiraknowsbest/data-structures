@@ -25,7 +25,7 @@ stackMethods.pop = function () {
   if (size > 0) {
     // return something
     var popped = this[size - 1];
-    delete this[size - 1];
+    delete popped;
     this.stackSize--;
     return popped;
   }
