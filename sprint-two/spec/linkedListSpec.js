@@ -51,5 +51,32 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it ('should return the value at a given index', function () {
+    linkedList.addToTail(4);
+    linkedList.addToTail(6);
+    linkedList.addToTail(9);
+    linkedList.addToTail(10);
+    expect(linkedList.findNth(1)).to.equal(4);
+    expect(linkedList.findNth(3)).to.equal(9);
+    expect(linkedList.findNth(2)).to.equal(6);
+    expect(linkedList.findNth(20)===undefined).to.be.true;
+  });
+
+  it('should have nodes pointing to next node value', function () {
+    linkedList.addToTail(1);
+    linkedList.addToTail(2);
+    linkedList.addToTail(3);
+    linkedList.addToTail(4);
+    expect(linkedList.head.next).to.eql(linkedList[1]);
+  });
+
+  it('should update next when removeNode is called', function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail(2);
+    linkedList.addToTail(3);
+    linkedList.addToTail(4);
+    linkedList.removeNode(2);
+    expect(linkedList.head.next).to.eql(linkedList[2]);
+  });
   // add more tests here to test the functionality of linkedList
 });
