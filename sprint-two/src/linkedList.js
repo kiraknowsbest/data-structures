@@ -57,7 +57,12 @@ var LinkedList = function() {
     var removedNode = list[number - 1];
     list[number - 2].next = nextNode;
     delete removedNode;
+    list.len--;
     return removedNode;
+  };
+
+  list.addNode = function (number) {
+
   };
 
   return list;
