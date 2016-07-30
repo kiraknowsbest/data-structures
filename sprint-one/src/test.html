@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <script src="../../lib/jquery/jquery.js"></script>
+    <script src="../../lib/underscore/underscore.js"></script>
+<!--     <script src='functional/queue.js'></script>
+    <script src='functional/stack.js'></script> -->
+   <!--  <script src='functional-shared/queue.js'></script>
+    <script src='functional-shared/stack.js'></script> -->
+    <!-- <script src='prototypal/queue.js'></script>
+    <script src='prototypal/stack.js'></script> -->
+    <script src='pseudoclassical/queue.js'></script>
+    <script src='pseudoclassical/stack.js'></script>
+    <script src='../../sprint-two/src/binarySearchTree.js'></script>
+    <script src='../../sprint-two/src/binarySearchTreeBETA.js'></script>
+
+  </head>
+  <body>
+    <script>
+        var stack = new Stack ();
+        var queue = new Queue ();
+
+        var helpMeStack = function (length, collection) {
+          
+          for ( var i = 0; i < length; i++ ) {
+            collection.push(i);
+          }
+        };
+
+        var helpMeQueue = function (length, collection) {
+          for ( var i = 0; i < length; i++ ) {
+            collection.enqueue(i);
+          }
+        };
+
+        helpMeStack( 2000, stack );
+        helpMeQueue( 2000, queue );
+ 
+    </script>
+    <h1>Functional Instantiation</h1>
+  </body>
+</html>
