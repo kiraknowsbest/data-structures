@@ -32,11 +32,15 @@ BinarySearchTree.prototype.contains = function (value) {
     if ( tree.value === value ) {
       found = true;
     } else {
-      if ( tree.left ) {
-        search( tree.left );
+      if ( tree.value > value ) {
+        if ( tree.left ) {
+          search( tree.left );
+        }
       }
-      if ( tree.right ) {
-        search( tree.right );
+      if ( tree.value < value ) {
+        if ( tree.right ) {
+          search( tree.right );
+        }
       }
     }
   };
@@ -64,6 +68,6 @@ BinarySearchTree.prototype.depthFirstLog = function (cb) {
 /*
  * Complexity: What is the time complexity of the above functions?
  * Insert is O(log n), Logarithmic
- * contains is O(n), linear ( we are thinking of how exactly to refactor it )
+ * contains is O(log n), logarithmic
  * depthFirstLog is O(n), linear
  */
