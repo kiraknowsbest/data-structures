@@ -16,12 +16,7 @@ Graph.prototype.addNode = function(node) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
-  for ( var key in this.nodes ) {
-    if ( this.nodes[key].value === node ) {
-      return true;
-    } 
-  }
-  return false;
+  return this.nodes[node] !== undefined;
 };
 
 // Removes a node from the graph.
@@ -78,7 +73,7 @@ Graph.prototype.forEachNode = function(cb) {
 /*
  * Complexity: What is the time complexity of the above functions?
  * addNode === O(1); Constant
- * contains === O(n); Linear
+ * contains === O(1); Constant
  * removeNode === O(n); Linear
  * hasEdge === O(n); Linear
  * addEdge === O(n); Linear
