@@ -5,51 +5,24 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function (value) {
-  //compare value against tree head
-  if ( this.value > value ) {
-    //tests if left is undefined
-    if ( !this.left ) {
-      //sets new tree to this.left
-      this.left = new BinarySearchTree(value);
-    } else {
-      //tests value against this.left.left
-      if ( this.left.value > value ) {
-        //tests if this.left.left is undefined
-        if ( !this.left.left ) {
-          //sets new tree to this.left.left
-          this.left.left = new BinarySearchTree(value);
-        }   
+  
+  var addTree = function (tree) {
+    if ( tree.value > value ) {
+      if ( !tree.left ) {
+        tree.left = new BinarySearchTree(value);
       } else {
-        //tests if this.left.right is undefined
-        if ( !this.left.right ) {
-          //sets this.left.right to new tree
-          this.left.right = new BinarySearchTree(value);
-        }
+        addTree( tree.left );
+      }
+    } else {
+      if ( !tree.right ) {
+        tree.right = new BinarySearchTree(value);
+      } else {
+        addTree( tree.right );
       }
     }
-  } else {
-    //value is more than tree head's value
-    //checks if this.right is undefined
-    if ( !this.right ) {
-      //sets this.right to new tree
-      this.right = new BinarySearchTree(value);
-    } else {
-      // test value against this.right.right
-      if ( this.right.value > value ) {
-        // if this.right.left is undefined
-        if ( !this.right.left ) {
-          // sets new tree to this.right.left
-          this.right.left = new BinarySearchTree(value);
-        }
-      } else {
-        // tests if this.right.right is undefined 
-        if ( !this.right.right ) {
-          // sets new tree to this.right.right
-          this.right.right = new BinarySearchTree(value);
-        }
-      } 
-    }
-  }
+  };
+
+  addTree(this);
 };
 
 BinarySearchTree.prototype.contains = function (value) {
